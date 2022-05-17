@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int i=3,j=5, pp, pq;
+    int *p, *q, *h,  resultado;
+    p = &i;
+    q = &j;
+    p == &i;
+    pp=*p;
+    pq=*q;
+
+    printf("i=%d", i);
+    printf("\n");
+
+    printf("p-q=%d", *p - *q);
+    printf("\n");
+
+    **&p;
+    printf("p=%d", **&p);
+    printf("\n");
+
+    resultado=3 - pp/pq + 7;
+    printf("resultado=%d", resultado);
+    printf("\n");
+    printf("tentativa2=%d",  3 - pp/pq + 7);
+    printf("\n");
+    return 0;
+}
+
