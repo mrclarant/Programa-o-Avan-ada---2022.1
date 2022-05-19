@@ -1,0 +1,56 @@
+#include <stdio.h>   //biblioteca padrao
+#include <stdlib.h> //biblioteca de ponteiro
+#include <time.h>   //biblioteca do contador de tempo
+
+int comparador(const void *a, const void *b) { // funcao que compara as variaveis
+    return ( *(int*)a - *(int*)b );             // comparando as variaveis
+}
+
+int comparador2(const void *a, const void *b) { // funçao que troca as variaveis
+    if (*(int*)a > *(int*)b) {                   // vendo se a eh maior b
+        return 1;                                 // retorna 1 se for sim
+    } else if (*(int*)a < *(int*)b) {            // se nao a eh menor que b
+        return -1;                                 // retorna -1
+    } else {                                      //se nao
+        return 0;                                  // retorna 0
+    }
+}
+int main(int argc, char *argv[]) //inicializando a funcao (funçao principal)
+{
+    float tempo;                 // criando a variavel tempo
+    clock_t t;                   // variaveis de tempo
+
+    int i,n,j, h;                 // criando varaveis
+    float temp=0.0f;             //criando varaveis
+    printf("Valor de n= \n");    // instrucao para os usuarios
+    scanf("%d", &n);             // pegando o valor
+
+    float *a;                    // criando variavel
+
+    a=malloc(n*sizeof(float));    //alocando variavel dinamicamente
+    for(i=0;i<=n; i++){            // laço for que vai de i a n
+        a[i]=rand() % 100+0.3;     // dizendo quais sao os valores de a[i]
+    }
+
+    printf("\n\n Antes \n\n");   //amostrando antes no terminal
+
+    for(i= 0; i<=n; i++)         // laço for de i a n
+    {
+        printf("%.2f  ", a[i]);   //amostrando o que tem no vetor
+    }
+    t = clock();                  // comencando a contar o tempo
+    for(h=0; h<4694900; h++){          // laço for de i a 4694900
+        qsort(a, n, sizeof(float), comparador);   // chamando a funcao qsort
+    }
+    t = clock() - t;                             // parando de contar o tempo
+    printf("\n\nDepois \n\n");                   // amostrando depois
+
+    for(i= 0; i<=n; i++)                         // laço for de i a n
+    {
+        printf("%.2f  ", a[i]);                  //amostrando o que tem no vetor
+    }
+    printf("\n\n");                              // pulando 2 linhas
+    printf("\n Tempo de execucao: %lf\n", ((double)t)/((CLOCKS_PER_SEC/1000)));      //Imprime o resultado do tempo
+    free(a);
+}
+
