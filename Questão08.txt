@@ -21,4 +21,4 @@
 	}
 
 	// No segundo programa, ao invés de imprimir o conteúdo dos blocos de memória, o programa vai imprimir o endereço dos blocos do vetor 'vet'. É possível ver a
-        //variação de 4 bytes no endereço de cada bloco do vetor 'vet'.
+        //variação de 4 bytes no endereço de cada bloco do vetor 'vet'....
